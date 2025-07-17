@@ -14,6 +14,7 @@ export const App = () => {
     const value = parseInt(e.target.value, 10);
 
     setPerPage(value);
+    setCurrentPage(1);
   };
 
   const start = (currentPage - 1) * perPage;
