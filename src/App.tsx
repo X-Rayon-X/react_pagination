@@ -9,6 +9,7 @@ const items = getNumbers(1, 42).map(n => `Item ${n}`);
 export const App = () => {
   const [perPage, setPerPage] = useState(3);
   const [currentPage, setCurrentPage] = useState(1);
+  const total = 42;
 
   const handlePerPage = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const value = parseInt(e.target.value, 10);
@@ -25,7 +26,9 @@ export const App = () => {
       <h1>Items with Pagination</h1>
 
       <p className="lead" data-cy="info">
-        Page {currentPage} (items {start + 1} - {end} of 42)
+        {/* eslint-disable-next-line max-len */}
+        Page {currentPage} (items {start + 1} - {end < total ? end : total} of{' '}
+        {total})
       </p>
 
       <div className="form-group row">
@@ -49,7 +52,7 @@ export const App = () => {
       </div>
 
       <Pagination
-        total={42}
+        total={total}
         perPage={perPage}
         currentPage={currentPage}
         onPageChange={(page: number) => setCurrentPage(page)}
