@@ -7,7 +7,7 @@ import { Pagination } from './components/Pagination';
 const items = getNumbers(1, 42).map(n => `Item ${n}`);
 
 export const App = () => {
-  const [perPage, setPerPage] = useState(3);
+  const [perPage, setPerPage] = useState(5);
   const [currentPage, setCurrentPage] = useState(1);
   const total = 42;
 
@@ -40,7 +40,9 @@ export const App = () => {
             onChange={handlePerPage}
           >
             <option value="3">3</option>
-            <option value="5">5</option>
+            <option selected value="5">
+              5
+            </option>
             <option value="10">10</option>
             <option value="20">20</option>
           </select>
